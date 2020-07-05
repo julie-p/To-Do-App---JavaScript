@@ -15,11 +15,12 @@ const UNCHECK = "fa-circle";
 const LINE_THROUGH = "lineThrough";
 
 //Variables
-let LIST, id;
+let LIST = [];
+let id = 0;
 
 // Récupère item du local storage
 
-//Ajoute item dans local storage
+//Ajoute item dans local st
 
 //Date du jour
 const options = {weekday:"long", month:"short", day:"numeric"};
