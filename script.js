@@ -9,7 +9,7 @@ const list = document.getElementById("list");
 //select input element pour avoir la value de l'user
 const input = document.getElementById("input");
 
-//2 -  Créer var
+//2 -  Créer variables
 
 //Classes noms
 const CHECK = "fa-check-circle";
@@ -52,7 +52,7 @@ clear.addEventListener('click', function(){
 //Date du jour
 const options = {weekday:"long", month:"short", day:"numeric"};
 const today = new Date();
-dateElement.innerHTML = today.toLocaleDateString("en-US", options);
+dateElement.innerHTML = today.toLocaleDateString("fr-FR", options);
 
 // 5 - Ajouter une to-do
 
