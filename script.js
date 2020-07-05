@@ -15,12 +15,28 @@ const UNCHECK = "fa-circle";
 const LINE_THROUGH = "lineThrough";
 
 //Variables
-let LIST = [];
-let id = 0;
+let LIST;
+let id;
 
-// Récupère item du local storage
+//Récupère item du local storage
+let data = localStorage.getItem("TODO");
 
-//Ajoute item dans local st
+//Si data n'est pas vide
+if (data) {
+    LIST = JSON.parse(data);
+    id = LIST.length; //définit id sur le dernier de la liste
+    loadList(LIST); //Charge la liste présente dans local storage
+} else {
+    LIST = [];
+    id = 0;
+};
+
+//Fonction pour charger la liste
+function loadList(array) {
+    array.forEach(function(item) {
+        addToDo(item.name, item.id, item.done, item.trash);
+    });
+};
 
 //Date du jour
 const options = {weekday:"long", month:"short", day:"numeric"};
@@ -64,6 +80,8 @@ document.addEventListener('keyup', function(event) {
                 done: false,
                 trash: false
             });
+            //Ajoute item dans local storage
+            localStorage.setItem("TODO", JSON.stringify(LIST));
             id++;
         }
         //Finir en remettant input vide
@@ -96,5 +114,7 @@ list.addEventListener('click', function(event) {
         completeToDo(e);
     } else if (elementJob == "delete") {
         removeToDo(e);
-    }
+    };
+    //Ajoute item dans local storage
+    localStorage.setItem("TODO", JSON.stringify(LIST));
 })
