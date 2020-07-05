@@ -9,6 +9,8 @@ const list = document.getElementById("list");
 //select input element pour avoir la value de l'user
 const input = document.getElementById("input");
 
+//2 -  Créer var
+
 //Classes noms
 const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle";
@@ -17,6 +19,8 @@ const LINE_THROUGH = "lineThrough";
 //Variables
 let LIST;
 let id;
+
+// 3 - Local storage
 
 //Récupère item du local storage
 let data = localStorage.getItem("TODO");
@@ -44,10 +48,13 @@ clear.addEventListener('click', function(){
     location.reload();
 });
 
+// 4 - Set date du jour
 //Date du jour
 const options = {weekday:"long", month:"short", day:"numeric"};
 const today = new Date();
 dateElement.innerHTML = today.toLocaleDateString("en-US", options);
+
+// 5 - Ajouter une to-do
 
 //addToDo function
 function addToDo(toDo, id, done, trash) {
@@ -94,6 +101,8 @@ document.addEventListener('keyup', function(event) {
         input.value = "";
     }
 });
+
+// 6 - Confirmer ou supprimer les to-do 
 
 //To-do faite
 function completeToDo(e) {
