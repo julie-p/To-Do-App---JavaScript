@@ -17,16 +17,9 @@ const LINE_THROUGH = "lineThrough";
 //Variables
 let LIST, id;
 
-//Récupère item du local storage
-let data = localStorage.getItem("TODO");
+// Récupère item du local storage
 
-//Check si data n'est pas vide 
-if (data) {
-    LIST = json.parse(data);
-    id = LIST.length; //Définit id sur le dernier de la list
-} else {
-
-}
+//Ajoute item dans local storage
 
 //Date du jour
 const options = {weekday:"long", month:"short", day:"numeric"};
@@ -70,10 +63,6 @@ document.addEventListener('keyup', function(event) {
                 done: false,
                 trash: false
             });
-
-            //Ajout item au local storage (code doit être écrit partout où on update LIST [])
-            localStorage.setItem("TODO", JSON.stringify(LIST));
-            
             id++;
         }
         //Finir en remettant input vide
@@ -107,6 +96,4 @@ list.addEventListener('click', function(event) {
     } else if (elementJob == "delete") {
         removeToDo(e);
     }
-    //Ajout item au local storage (code doit être écrit partout où on update LIST [])
-    localStorage.setItem("TODO", JSON.stringify(LIST));
 })
