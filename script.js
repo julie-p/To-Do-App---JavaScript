@@ -38,6 +38,12 @@ function loadList(array) {
     });
 };
 
+//Event Listener sur le bouton clear pour clear le local storage
+clear.addEventListener('click', function(){
+    localStorage.clear();
+    location.reload();
+});
+
 //Date du jour
 const options = {weekday:"long", month:"short", day:"numeric"};
 const today = new Date();
